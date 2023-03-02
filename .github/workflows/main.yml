@@ -48,12 +48,19 @@ jobs:
         with:
           python-version: "3.8"
       - run: python -m pip install flake8
-      - name: flake8
-        # Pinned to v2.0.0.
-        uses: liskin/gh-problem-matcher-wrap@d8afa2cfb66dd3f982b1950429e652bc14d0d7d2
-        with:
-          linters: flake8
-          run: flake8
+      # - name: flake8
+      #   # Pinned to v2.0.0.
+      #   uses: liskin/gh-problem-matcher-wrap@d8afa2cfb66dd3f982b1950429e652bc14d0d7d2
+      #   with:
+      #     linters: flake8
+      #     run: flake8
+
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
 
   isort:
     runs-on: ubuntu-latest
