@@ -25,4 +25,3 @@ pre-commit==3.1.1
 PyYAML==6.0
 tomli==2.0.1
 virtualenv==20.20.0
-Flask
