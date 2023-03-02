@@ -24,10 +24,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # # Run our unit tests
-      # - name: Run unit tests
-      #   run: |
-      #     python unit_test.py
+      # Run our unit tests
+      - name: Run unit tests
+        run: |
+          python backend/tests/test_utils.py
 
       - uses: actions/cache@v2
         # https://github.com/actions/cache/blob/main/examples.md#python---pip
@@ -60,7 +60,7 @@ jobs:
           # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=79 --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
   isort:
     runs-on: ubuntu-latest
