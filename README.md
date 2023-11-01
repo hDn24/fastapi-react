@@ -1,1 +1,7 @@
-# fastapi-react
+# FastAPI & react
+
+## Based
+
+## Libraries
+
+## Install (for development)
